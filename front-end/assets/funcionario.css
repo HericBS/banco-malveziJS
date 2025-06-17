@@ -1,0 +1,65 @@
+/* assets/css/funcionario.css */
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cadastro-section, .clientes-section, .auditoria-section {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cadastro-section h2, .clientes-section h2, .auditoria-section h2 {
+    margin-top: 0;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#cadastrar-cliente-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+#cadastrar-cliente-form button {
+    grid-column: span 2;
+    padding: 0.8rem;
+}
+
+#clientes-tabela, #auditoria-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#clientes-tabela th, #clientes-tabela td,
+#auditoria-tabela th, #auditoria-tabela td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+#clientes-tabela th, #auditoria-tabela th {
+    background-color: #f7f7f7;
+    font-weight: 600;
+}
+
+.btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-excluir:hover {
+    background-color: #c0392b;
+}

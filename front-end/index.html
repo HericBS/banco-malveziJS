@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Malvader - Login</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Banco Malvader</h1>
+        <p>Acesse sua conta</p>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <p id="error-message" class="error-message"></p>
+
+            <div class="button-group">
+                <button type="button" id="btn-login-cliente" class="btn">Entrar como Cliente</button>
+                <button type="button" id="btn-login-funcionario" class="btn btn-secondary">Entrar como Funcionário</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        import { handleLogin } from './front-end/js/auth.js';
+
+        // Captura os botões
+        const btnCliente = document.getElementById('btn-login-cliente');
+        const btnFuncionario = document.getElementById('btn-login-funcionario');
+        const loginForm = document.getElementById('login-form');
+
+        // Adiciona um listener para o botão de login do CLIENTE
+        btnCliente.addEventListener('click', (event) => {
+            // Cria um evento de "submit" falso para passar para a função handleLogin
+            const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+            loginForm.dispatchEvent(submitEvent);
+            handleLogin(submitEvent, 'cliente');
+        });
+
+        // Adiciona um listener para o botão de login do FUNCIONÁRIO
+        btnFuncionario.addEventListener('click', (event) => {
+            const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+            loginForm.dispatchEvent(submitEvent);
+            handleLogin(submitEvent, 'funcionario');
+        });
+    </script>
+</body>
+</html>

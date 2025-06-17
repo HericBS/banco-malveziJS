@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Cliente - Banco Malvader</title>
+    <script type="module">
+        import { protectPage } from './assets/js/auth.js';
+        protectPage(['cliente']);
+    </script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/cliente.css">
+</head>
+<body>
+    <header>
+        <h1>Banco Malvader</h1>
+        <div>
+            <span>Olá, <strong id="nome-cliente"></strong>!</span>
+            <button id="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="saldo-section">
+            <h2>Seu Saldo</h2>
+            <p id="saldo-conta">Carregando...</p>
+        </section>
+
+        <section class="operacoes-section">
+            <h2>Operações</h2>
+            <div class="forms-container">
+                <form id="deposito-form">
+                    <h3>Depósito</h3>
+                    <input type="number" name="valorDeposito" placeholder="Valor do Depósito" step="0.01" required>
+                    <button type="submit">Depositar</button>
+                </form>
+
+                <form id="saque-form">
+                    <h3>Saque</h3>
+                    <input type="number" name="valorSaque" placeholder="Valor do Saque" step="0.01" required>
+                    <button type="submit">Sacar</button>
+                </form>
+
+                <form id="transferencia-form">
+                    <h3>Transferência</h3>
+                    <input type="number" name="contaDestino" placeholder="ID da Conta de Destino" required>
+                    <input type="number" name="valorTransferencia" placeholder="Valor da Transferência" step="0.01" required>
+                    <button type="submit">Transferir</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="extrato-section">
+            <h2>Extrato</h2>
+            <div id="extrato-container">
+                <p>Carregando extrato...</p>
+            </div>
+        </section>
+      </main>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/cliente.js"></script>
+    <script type="module">
+        import { handleLogout } from './assets/js/auth.js';
+        document.getElementById('btn-logout').addEventListener('click', handleLogout);
+    </script>
+</body>
+</html>
